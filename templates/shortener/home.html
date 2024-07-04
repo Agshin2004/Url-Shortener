@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{% static 'shortener/style.css' %}">
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("readonlyInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+
+    <form method="post" action="/">
+        {% csrf_token %}
+        
+        <div class="input-container">
+            <label for="url">Enter an https:// URL:</label>
+            <input type="url" 
+                name="url"
+                class="styled-input" 
+                placeholder="https://duckduckgo.com"
+                pattern="https://.*" 
+                size="50"
+                required
+                value="{{ long_url }}">
+            <button class="styled-button" type="submit">Submit</button>
+        </div>
+
+        <div class="input-container">
+            <label>Generated URL:</label>
+            <input type="text"
+                name="generated_url"
+                class="readonly-input" 
+                id="readonlyInput" 
+                {% if shortened_url %} 
+                  value="{{ request.get_host }}/{{ shortened_url }}"  
+                {% endif %}
+                readonly>
+            <button type="button" class="copy-button" onclick="copyToClipboard()">Copy</button>
+        </div>
+    </form>
+
+    <h1>Last 10 Shortened URLs</h1>
+    <div class="last-urls">
+        {% for url in last_ten_shortened %}
+            <p>
+                <a href="{{ url.url }}">{{ url.url }}</a>
+                <span class="delimiter">---</span>
+                <a href="{{ request.get_host }}/{{ url.shortened_url }}">{{ request.get_host }}/{{ url.shortened_url }}</a>
+            </p>
+        {% endfor %}
+    </div>
+</body>
+</html>

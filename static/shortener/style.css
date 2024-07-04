@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://wallpapercave.com/wp/wp7469052.jpg') no-repeat center / cover;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+label {
+    flex: 1;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.styled-input,
+.readonly-input {
+    flex: 3;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+}
+
+.readonly-input {
+    border: 2px solid #2196F3;
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+.styled-button,
+.copy-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    border: 2px solid #4CAF50;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.copy-button {
+    background-color: #2196F3;
+    border: 2px solid #2196F3;
+}
+
+.styled-button:hover {
+    background-color: #45a049;
+}
+
+.copy-button:hover {
+    background-color: #0b7dda;
+}
+
+.last-urls {
+    width: 100%;
+    max-width: 600px;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.last-urls p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.last-urls a {
+    color: #2196F3;
+    text-decoration: none;
+}
+
+.last-urls a:hover {
+    text-decoration: underline;
+}
+
+.delimiter {
+    margin: 0 10px;
+    color: #fff;
+}
