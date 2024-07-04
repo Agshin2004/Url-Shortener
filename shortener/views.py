@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 
 from .models import Url
@@ -26,5 +26,5 @@ def home(request):
 
 
 def redirect_me(request, shortened_url):
-    url = Url.objects.get(shortened_url=shortened_url).url
+    url = get_object_or_404(Url, shortened_url=shortened_url).url
     return HttpResponseRedirect(url)
