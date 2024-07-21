@@ -7,7 +7,7 @@
 - **Recent History**: See your last 10 shortened URLs.
 
 ### Getting Started
-1. Clone the Repo `git clone https://github.com/yourusername/django-url-shortener.git`
+1. Clone the Repo `git clone https://github.com/Agshin2004/Url-Shortener.git`
 2. Go to project folder `cd django-url-shortener`
 3. Run migrations: `python manage.py migrate`
 4. Run Django development server: `python manage.py runserver 9999`
